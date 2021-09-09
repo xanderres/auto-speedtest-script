@@ -9,7 +9,10 @@ except:
    print("please install speedtest-cli !!! --> pip3 install speedtest-cli")
 
 # Config
+##############################################################
 data_path = '/home/pi/speedtest/'
+##############################################################
+
 
 def st_test():
     st = speedtest.Speedtest()
@@ -24,12 +27,15 @@ def csv_write(data_row, output_file):
     writer.writerow(data_row)
 
 def csv_read():
-    
+    pass
 
-now = datetime.datetime.now()
-date = now.strftime("%Y-%m-%d")
-time = now.strftime("%H:%M:%S")
-row = [date, time] + list(st_test())
-csv_file = data_path + now.strftime("%Y-%m") + '.csv'
-csv_write(row, csv_file)
+def main(data_path):
+    now = datetime.datetime.now()
+    date = now.strftime("%Y-%m-%d")
+    time = now.strftime("%H:%M:%S")
+    row = [date, time] + list(st_test())
+    csv_file = data_path + now.strftime("%Y-%m") + '.csv'
+    csv_write(row, csv_file)
 
+if __name__ == "__main__":
+    main(data_path)
