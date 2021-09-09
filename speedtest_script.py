@@ -24,6 +24,7 @@ def csv_write(data_row, output_file):
     writer.writerow(data_row)
 
 def csv_read():
+    return
     
 
 now = datetime.datetime.now()
